@@ -9,6 +9,33 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* ── 列印：移除頁首頁尾 ── */
+  @page {
+    margin: 0;
+  }
+
+  /* ── 分頁保護：所有主要區塊不在中間被切斷 ── */
+  @media print {
+    .plans, .plan-card,
+    .rights-grid, .right-card,
+    .guest-section, .guest-steps,
+    .schedule-grid, .sched-card,
+    .usage-section, .usage-grid, .usage-card,
+    .cta,
+    table, tr, td, th {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .section-title {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .hero {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+  }
+
   body {
     font-family: 'Noto Sans TC', sans-serif;
     background: #0a0b0f;
